@@ -13,7 +13,6 @@ export default class TypingIndicator extends MessageType {
 
     onVisibilityChange = () => {
         setTimeout(() => {
-            // this.state.visible = false;
             this.setState({
                 visible: false
             });

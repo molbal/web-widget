@@ -19,8 +19,6 @@ export default abstract class MessageType extends Component<IMessageTypeProps, I
      */
     componentDidMount() {
         setTimeout(() => {
-            // this.state.visible = true;
-            // this.state.visibilityChanged = true;
             this.setState({
                 visible: true,
                 visibilityChanged: true
