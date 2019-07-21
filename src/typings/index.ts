@@ -152,6 +152,12 @@ export interface IConfiguration {
     headerIconBorderRadius: string
 
     /**
-     *
+     * Size for the header icon (width and height)
      */
+    headerIconSize: string
+
+    /**
+     * Should draw header icon?
+     */
+    headerIconDisplayed: boolean
 }

@@ -34,4 +34,6 @@ export const defaultConfiguration: IConfiguration = {
     headerTextFontFamily: "'Open Sans', sans-serif",
     headerTextFontWeight: 'bolder',
     headerIconBorderRadius: '50%',
+    headerIconDisplayed: true,
+    headerIconSize: '72px',
 };

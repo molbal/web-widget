@@ -103,15 +103,14 @@ export default class Widget extends Component<any, IWidgetState> {
                                 }}>
                                     <div style={{
                                         position: 'relative',
-                                        width: '64px', height: '64px',
+                                        width: conf.headerIconSize, height: conf.headerIconSize,
                                         backgroundImage: `url(${conf.bubbleAvatarUrl})`,
                                         backgroundSize: '100%',
                                         // border: '2px solid black',
                                         borderRadius: conf.headerIconBorderRadius,
                                         marginRight: '1em',
-
-                                    }} >&nbsp;
-                                    </div>
+                                        display: conf.headerIconDisplayed ? 'block' : 'none'
+                                    }}>&nbsp;</div>
                                     {conf.title}
                                 </div>
                                 <ArrowIcon isOpened={isChatOpen}/>
