@@ -30,5 +30,8 @@ export const defaultConfiguration: IConfiguration = {
     echoChannel: (userId: string) => '',
     echoConfiguration: {},
     echoEventName: '.message.created',
-    echoChannelType: 'private'
+    echoChannelType: 'private',
+    headerTextFontFamily: "'Open Sans', sans-serif",
+    headerTextFontWeight: 'bolder',
+    headerIconBorderRadius: '50%',
 };

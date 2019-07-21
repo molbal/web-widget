@@ -7,7 +7,7 @@ export const desktopWrapperStyle = {
     borderRadius: '5px',
     boxSizing: 'content-box',
     boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.2)',
-    overflow: 'hidden'
+    // overflow: 'hidden'
 };
 
 export const desktopClosedWrapperStyleChat = {

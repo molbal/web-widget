@@ -132,5 +132,26 @@ export interface IConfiguration {
 
     echoEventName: string,
 
-    init?: Function
+    init?: Function,
+
+    /** SundayIT added functionality */
+
+    /**
+     * Header text font family
+     */
+    headerTextFontFamily: string,
+
+    /**
+     * Header text font weight
+     */
+    headerTextFontWeight: string | number,
+
+    /**
+     * Radius for the icon at the top
+     */
+    headerIconBorderRadius: string
+
+    /**
+     *
+     */
 }

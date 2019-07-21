@@ -25,6 +25,7 @@ function injectChat() {
     document.getElementsByTagName('body')[0].appendChild(root);
 
     render(
+
         <Chat
             userId={conf.userId}
             conf={conf}

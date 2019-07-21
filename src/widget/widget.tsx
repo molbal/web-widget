@@ -97,8 +97,21 @@ export default class Widget extends Component<any, IWidgetState> {
                             <div style={{background: conf.mainColor, ...desktopTitleStyle}} onClick={this.toggle}>
                                 <div style={{
                                     display: 'flex', alignItems: 'center', padding: '0px 30px 0px 0px',
-                                    fontSize: '15px', fontWeight: 'normal', color: conf.headerTextColor
+                                    fontSize: '15px', color: conf.headerTextColor,
+                                    fontFamily: conf.headerTextFontFamily,
+                                    fontWeight: conf.headerTextFontWeight
                                 }}>
+                                    <div style={{
+                                        position: 'relative',
+                                        width: '64px', height: '64px',
+                                        backgroundImage: `url(${conf.bubbleAvatarUrl})`,
+                                        backgroundSize: '100%',
+                                        // border: '2px solid black',
+                                        borderRadius: conf.headerIconBorderRadius,
+                                        marginRight: '1em',
+
+                                    }} >&nbsp;
+                                    </div>
                                     {conf.title}
                                 </div>
                                 <ArrowIcon isOpened={isChatOpen}/>

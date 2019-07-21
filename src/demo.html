@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>BotMan Widget Demo</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,700&display=swap&subset=latin-ext" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
 
@@ -58,8 +58,15 @@
 <script>
     var botmanWidget = {
         chatServer: 'https://php-uk-conference-2018.marcelpociot.de/botman',
-        frameEndpoint: 'chat.html'
-    };
+        frameEndpoint: 'chat.html',
+        bubbleAvatarUrl: 'https://sundayit.hu/img/icons8/icons8-robot-2-100.png',
+        title: 'Chatbot',
+        headerTextColor: '#fff',
+        headerTextFontFamily: "Barlow Semi Condensed",
+        headerTextFontWeight: 700,
+        mainColor: '#f37820',
+        headerIconBorderRadius: '0'
+    }
 </script>
 <script id="botmanWidget" src='js/widget.js'></script>
 </body>

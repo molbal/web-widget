@@ -9,7 +9,7 @@ export default class ChatTitleMsg extends Component<any, any> {
                 <div
                     className="desktop-closed-message-avatar"
                     style={{
-                        background: conf.bubbleBackground,
+                        // background: conf.bubbleBackground,
                         ...desktopClosedMessageAvatarStyle
                     }}
                 >
