@@ -58,7 +58,7 @@ export default class MessageHolder extends Component<IMessageHolderProps, any> {
 
         return (
             <li data-message-id={message.id} class={message.from} style={styles}>
-                <div class="msg">
+                <div class="msg animated fadeInUp fast">
                     <MessageComponent onVisibilityChange={this.messageVisibilityChange}
                                       message={message}
                                       timeout={calculatedTimeout}

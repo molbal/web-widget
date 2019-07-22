@@ -57,7 +57,8 @@ export const desktopTitleStyle = {
     cursor: 'pointer',
     boxSizing: 'content-box',
     mozBoxSizing: 'content-box',
-    webkitBoxSizing: 'content-box'
+    webkitBoxSizing: 'content-box',
+    borderRadius: '10px 10px 0 0'
 };
 
 export const mobileTitleStyle = {
@@ -69,7 +70,7 @@ export const mobileTitleStyle = {
     webkitBoxShadow: '0px 0px 20px rgba(0, 0, 0, 0.2)',
     boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.2)',
     cursor: 'pointer',
-    borderRadius: '50%'
+    borderRadius: '50%',
 };
 
 export const desktopClosedMessageStyle = {

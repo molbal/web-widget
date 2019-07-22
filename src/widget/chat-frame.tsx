@@ -17,7 +17,7 @@ export default class ChatFrame extends Component<any, any> {
                 height={isMobile ? '94%' : '100%'}
                 frameBorder='0'
                 allowTransparency
-                style='background-color:transparent' />
+                style='background-color:transparent;border-radius: 0 0 10px 10px;' />
         );
     }
 }
