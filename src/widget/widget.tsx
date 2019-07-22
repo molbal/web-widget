@@ -83,7 +83,7 @@ export default class Widget extends Component<any, IWidgetState> {
 
         return (
 
-            <div style={wrapperStyle} >
+            <div style={wrapperStyle}>
 
                 {/* Open/close button */}
                 {(isMobile || conf.alwaysUseFloatingButton) && !isChatOpen ?
@@ -146,13 +146,26 @@ export default class Widget extends Component<any, IWidgetState> {
     		stateData.wasChatOpened = true;
     	}
     	this.setState(stateData);
-        document.getElementById("botmanWidgetRoot").classList.add("chatAppear");
-        document.getElementById("botmanWidgetRoot").classList.add("animated");
 
-        setTimeout(function () {
-            document.getElementById("botmanWidgetRoot").classList.remove("animated");
-            document.getElementById("botmanWidgetRoot").classList.remove("chatAppear");
-        }, 1000);
+    	if (stateData.isChatOpen) {
+            document.getElementById("botmanWidgetRoot").classList.add("chatAppear");
+            document.getElementById("botmanWidgetRoot").classList.add("animated");
+
+            setTimeout(function () {
+                document.getElementById("botmanWidgetRoot").classList.remove("animated");
+                document.getElementById("botmanWidgetRoot").classList.remove("chatAppear");
+            }, 1000);
+        }
+        else {
+            document.getElementById("botmanWidgetRoot").classList.add("chatDisappear");
+            document.getElementById("botmanWidgetRoot").classList.add("animated");
+
+            setTimeout(function () {
+                document.getElementById("botmanWidgetRoot").classList.remove("animated");
+                document.getElementById("botmanWidgetRoot").classList.remove("chatDisappear");
+            }, 1000);
+
+        }
     };
 
     open() {
