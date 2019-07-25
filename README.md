@@ -18,11 +18,4 @@ More to follow, the rest of the documentation is not written yet.
 
 # Build, add to Laravel
 
-1. Run ```$ npm build``` 
-2. In target project create file **resources/chatframe.blade.php**
-3. From the output **build** folder copy **chat.html** contents to the newly created file.
-4. Add the following line to **routes/web.php** 
-```php
-Route::view('/chat', "chatframe")
-```
-5. Copy resources to the appropriate locations (chat.js, widget.js, chat.js, jquery, if locally hosted)
+See the chatframe repository, [here](https://github.com/sunday-ltd/chatframe)
