@@ -41,6 +41,20 @@ class BotMan {
     	});
     };
 
+    /**
+     *
+     * @param url
+     * @param callBack
+     */
+    callPing = (url: string, callBack: Function) => {
+        let data = new FormData();
+
+        const postData = {
+            userId: this.userId,
+            widgetOpened: window.botmanChatWidget.isOpen()
+        };
+    };
+
 }
 
 export let botman = new BotMan();

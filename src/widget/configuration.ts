@@ -36,4 +36,5 @@ export const defaultConfiguration: IConfiguration = {
     headerIconBorderRadius: '50%',
     headerIconDisplayed: true,
     headerIconSize: '72px',
+    pingLocation: false
 };

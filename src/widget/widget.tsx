@@ -183,6 +183,13 @@ export default class Widget extends Component<any, IWidgetState> {
         });
     }
 
+    /**
+     * Returns if the chat is open
+     */
+    isOpen() {
+      return this.state.isChatOpen;
+    };
+
     private sendOpenEvent() {
         let data = new FormData();
         data.append('driver', 'web');

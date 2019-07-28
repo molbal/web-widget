@@ -182,7 +182,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
         return uuid;
     }
 
-	writeToMessages = (msg: IMessage) => {
+    writeToMessages = (msg: IMessage) => {
         if (typeof msg.time === "undefined") {
             msg.time = new Date().toJSON();
         }
@@ -196,21 +196,25 @@ export default class Chat extends Component<IChatProps, IChatState> {
             msg.id = Chat.generateUuid();
         }
 
-	    if (msg.attachment === null) {
-	        msg.attachment = {}; // TODO: This renders IAttachment useless
-	    }
+        if (msg.attachment === null) {
+            msg.attachment = {}; // TODO: This renders IAttachment useless
+        }
 
-	    this.state.messages.push(msg);
-	    this.setState({
-	        messages: this.state.messages
-	    });
+        this.state.messages.push(msg);
+        this.setState({
+            messages: this.state.messages
+        });
 
-	    if (msg.additionalParameters && msg.additionalParameters.replyType) {
-	        this.setState({
+        if (msg.additionalParameters && msg.additionalParameters.replyType) {
+            this.setState({
                 replyType: msg.additionalParameters.replyType
             });
         }
-	};
+    };
+
+    pingActivity = (props: IChatProps) => {
+
+    }
 }
 
 interface IChatProps {

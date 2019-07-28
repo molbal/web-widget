@@ -159,5 +159,10 @@ export interface IConfiguration {
     /**
      * Should draw header icon?
      */
-    headerIconDisplayed: boolean
+    headerIconDisplayed: boolean,
+
+    /**
+     * Sunday's ping location
+     */
+    pingLocation: string | false
 }
