@@ -27,6 +27,7 @@ export default class Api {
     }
 
     callChatWidget(payload: Object) {
+        console.log("sending message to chat iframe: " , payload);
         if (this.isOpen()) {
             (document.getElementById('chatBotManFrame') as HTMLIFrameElement).contentWindow.postMessage(payload, '*');
         } else {

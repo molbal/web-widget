@@ -2,7 +2,7 @@ import { h, Component } from "preact";
 import MessageArea from "./message-area";
 import { botman } from "./botman";
 import {IMessage, IConfiguration} from "../typings";
-
+import axios from 'axios';
 export default class Chat extends Component<IChatProps, IChatState> {
 
     [key: string]: any
@@ -20,8 +20,12 @@ export default class Chat extends Component<IChatProps, IChatState> {
         // this.state.replyType = ReplyType.Text;
         this.setState({
             messages: [],
-            replyType: ReplyType.Text
-        })
+            replyType: ReplyType.Text,
+            open: true
+        });
+
+        if (props.conf.pingLocation !== false)
+            setInterval(() => {this.pingActivity(props)}, 5000);
     }
 
     componentDidMount() {
@@ -37,7 +41,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
             try {
                 this[event.data.method](...event.data.params);
             } catch (e) {
-                //
+                console.error("Could not handle sent message: " , event.data);
             }
         });
     }
@@ -213,7 +217,16 @@ export default class Chat extends Component<IChatProps, IChatState> {
     };
 
     pingActivity = (props: IChatProps) => {
-
+        if (props.conf.pingLocation !== false) {
+            axios.post(props.conf.pingLocation, {
+                userID: props.userId,
+                widgetOpen: this.state.open
+            }).then( (reply) => {
+                // console.log(reply);
+            }).catch((err) => {
+                console.error(err);
+            });
+        }
     }
 }
 
@@ -229,6 +242,6 @@ enum ReplyType {
 
 interface IChatState {
     messages: IMessage[],
-
     replyType: string,
+    open: boolean
 }

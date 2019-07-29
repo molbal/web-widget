@@ -24,3 +24,11 @@ Default API has changed:
 # Build, add to Laravel
 
 See the chatframe repository, [here](https://github.com/sunday-ltd/chatframe)
+
+
+## Credits
+![](https://img.icons8.com/cotton/64/000000/cloud-user-group.png)
+
+- [Sunday Ltd.](https://sundayit.hu/chatbots)
+- [Botman](https://botman.io)
+- [Icons8](https://icons8.com)

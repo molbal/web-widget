@@ -154,7 +154,7 @@ export default class Widget extends Component<any, IWidgetState> {
             setTimeout(function () {
                 document.getElementById("botmanWidgetRoot").classList.remove("animated");
                 document.getElementById("botmanWidgetRoot").classList.remove("chatAppear");
-            }, 1000);
+            }, 500);
         }
         else {
             document.getElementById("botmanWidgetRoot").classList.add("chatDisappear");
@@ -163,7 +163,7 @@ export default class Widget extends Component<any, IWidgetState> {
             setTimeout(function () {
                 document.getElementById("botmanWidgetRoot").classList.remove("animated");
                 document.getElementById("botmanWidgetRoot").classList.remove("chatDisappear");
-            }, 1000);
+            }, 500);
 
         }
     };
@@ -174,6 +174,8 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: true,
             wasChatOpened: true
         });
+        window.botmanChatWidget.callChatWidget("open");
+
     }
 
     close() {
@@ -181,6 +183,7 @@ export default class Widget extends Component<any, IWidgetState> {
             pristine: false,
             isChatOpen: false
         });
+        window.botmanChatWidget.callChatWidget("minimized");
     }
 
     /**
