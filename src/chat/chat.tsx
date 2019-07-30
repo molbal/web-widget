@@ -40,8 +40,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
         window.addEventListener("message", (event: MessageEvent) => {
             try {
                 this[event.data.method](...event.data.params);
-            } catch (e) {
-                console.error("Could not handle sent message: " , event.data);
+            } catch (ignored) {
             }
         });
     }

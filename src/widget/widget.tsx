@@ -137,17 +137,18 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: !this.state.isChatOpen,
             wasChatOpened: this.state.wasChatOpened
     	};
-    	if (!this.state.isChatOpen && !this.state.wasChatOpened) {
-    	    if (this.props.conf.sendWidgetOpenedEvent) {
-    	        setTimeout(() => {
+        if (!this.state.isChatOpen && !this.state.wasChatOpened) {
+            if (this.props.conf.sendWidgetOpenedEvent) {
+                setTimeout(() => {
     	            this.sendOpenEvent();
                 }, 500);
             }
-    		stateData.wasChatOpened = true;
-    	}
-    	this.setState(stateData);
+            stateData.wasChatOpened = true;
+        }
 
-    	if (stateData.isChatOpen) {
+        this.setState(stateData);
+
+        if (stateData.isChatOpen) {
             document.getElementById("botmanWidgetRoot").classList.add("chatAppear");
             document.getElementById("botmanWidgetRoot").classList.add("animated");
 
@@ -174,8 +175,6 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: true,
             wasChatOpened: true
         });
-        window.botmanChatWidget.callChatWidget("open");
-
     }
 
     close() {
@@ -183,7 +182,6 @@ export default class Widget extends Component<any, IWidgetState> {
             pristine: false,
             isChatOpen: false
         });
-        window.botmanChatWidget.callChatWidget("minimized");
     }
 
     /**
