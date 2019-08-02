@@ -165,7 +165,6 @@ export default class Widget extends Component<any, IWidgetState> {
                 document.getElementById("botmanWidgetRoot").classList.remove("animated");
                 document.getElementById("botmanWidgetRoot").classList.remove("chatDisappear");
             }, 500);
-
         }
     };
 
