@@ -2,7 +2,7 @@ import { h, Component } from "preact";
 import MessageArea from "./message-area";
 import { botman } from "./botman";
 import {IMessage, IConfiguration} from "../typings";
-
+import axios from 'axios';
 export default class Chat extends Component<IChatProps, IChatState> {
 
     [key: string]: any
@@ -20,8 +20,12 @@ export default class Chat extends Component<IChatProps, IChatState> {
         // this.state.replyType = ReplyType.Text;
         this.setState({
             messages: [],
-            replyType: ReplyType.Text
-        })
+            replyType: ReplyType.Text,
+            open: true
+        });
+
+        if (props.conf.pingLocation !== false)
+            setInterval(() => {this.pingActivity(props)}, 5000);
     }
 
     componentDidMount() {
@@ -36,8 +40,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
         window.addEventListener("message", (event: MessageEvent) => {
             try {
                 this[event.data.method](...event.data.params);
-            } catch (e) {
-                //
+            } catch (ignored) {
             }
         });
     }
@@ -182,7 +185,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
         return uuid;
     }
 
-	writeToMessages = (msg: IMessage) => {
+    writeToMessages = (msg: IMessage) => {
         if (typeof msg.time === "undefined") {
             msg.time = new Date().toJSON();
         }
@@ -196,21 +199,34 @@ export default class Chat extends Component<IChatProps, IChatState> {
             msg.id = Chat.generateUuid();
         }
 
-	    if (msg.attachment === null) {
-	        msg.attachment = {}; // TODO: This renders IAttachment useless
-	    }
+        if (msg.attachment === null) {
+            msg.attachment = {}; // TODO: This renders IAttachment useless
+        }
 
-	    this.state.messages.push(msg);
-	    this.setState({
-	        messages: this.state.messages
-	    });
+        this.state.messages.push(msg);
+        this.setState({
+            messages: this.state.messages
+        });
 
-	    if (msg.additionalParameters && msg.additionalParameters.replyType) {
-	        this.setState({
+        if (msg.additionalParameters && msg.additionalParameters.replyType) {
+            this.setState({
                 replyType: msg.additionalParameters.replyType
             });
         }
-	};
+    };
+
+    pingActivity = (props: IChatProps) => {
+        if (props.conf.pingLocation !== false) {
+            axios.post(props.conf.pingLocation, {
+                userID: props.userId,
+                widgetOpen: this.state.open
+            }).then( (reply) => {
+                // console.log(reply);
+            }).catch((err) => {
+                console.error(err);
+            });
+        }
+    }
 }
 
 interface IChatProps {
@@ -225,6 +241,6 @@ enum ReplyType {
 
 interface IChatState {
     messages: IMessage[],
-
     replyType: string,
+    open: boolean
 }

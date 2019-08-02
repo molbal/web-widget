@@ -2,18 +2,18 @@ import { IConfiguration } from "../typings";
 
 export const defaultConfiguration: IConfiguration = {
     chatServer: '/botman',
-    frameEndpoint: '/botman/chat',
+    frameEndpoint: 'chat.html',
     timeFormat: 'HH:MM',
     dateTimeFormat: 'm/d/yy HH:MM',
-    title: 'BotMan Widget',
+    title: 'Chat',
     cookieValidInDays: 1,
     introMessage: '',
     placeholderText: 'Send a message...',
     displayMessageTime: true,
     sendWidgetOpenedEvent: false,
     widgetOpenedEventData: '',
-    mainColor: '#408591',
-    headerTextColor: '#333',
+    mainColor: '#f37820',
+    headerTextColor: '#fff',
     bubbleBackground: '#408591',
     bubbleAvatarUrl: '',
     desktopHeight: 450,
@@ -36,4 +36,5 @@ export const defaultConfiguration: IConfiguration = {
     headerIconBorderRadius: '50%',
     headerIconDisplayed: true,
     headerIconSize: '72px',
+    pingLocation: false
 };

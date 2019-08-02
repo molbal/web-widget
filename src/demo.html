@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunday-ltd/web-widget@1.0/build/assets/css/widget.min.css">
     <!-- Styles -->
     <style>
         body {
@@ -82,19 +82,6 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <p>
             You can also <a href="#" onclick="botmanChatWidget.say('Hello');return false;">say things</a> programatically.
             Or if you're more of a sneaky-type, you can also <a href="#" onclick="botmanChatWidget.whisper('give me videos')">whisper</a> 🤫.
@@ -106,7 +93,7 @@
 
 <script>
     var botmanWidget = {
-        chatServer: 'https://php-uk-conference-2018.marcelpociot.de/botman',
+        chatServer: 'http://127.0.0.1:8000/botman',
         frameEndpoint: 'chat.html',
         bubbleAvatarUrl: "https://img.icons8.com/color/96/000000/technical-support.png",
         title: 'Chatbot',
@@ -116,7 +103,8 @@
         mainColor: '#f37820',
         headerIconBorderRadius: '0',
         headerIconDisplayed: true,
-        headerIconSize: '80px'
+        headerIconSize: '80px',
+        pingLocation: "http://127.0.0.1:8000/chat-activity"
     }
 </script>
 <script id="botmanWidget" src='js/widget.js'></script>

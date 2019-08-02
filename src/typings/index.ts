@@ -147,7 +147,7 @@ export interface IConfiguration {
     headerTextFontWeight: string | number,
 
     /**
-     * Radius for the icon at the top
+     * Border radius for the icon at the top
      */
     headerIconBorderRadius: string
 
@@ -159,5 +159,10 @@ export interface IConfiguration {
     /**
      * Should draw header icon?
      */
-    headerIconDisplayed: boolean
+    headerIconDisplayed: boolean,
+
+    /**
+     * Sunday's ping location
+     */
+    pingLocation: string | false
 }

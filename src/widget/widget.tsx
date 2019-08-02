@@ -137,24 +137,25 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: !this.state.isChatOpen,
             wasChatOpened: this.state.wasChatOpened
     	};
-    	if (!this.state.isChatOpen && !this.state.wasChatOpened) {
-    	    if (this.props.conf.sendWidgetOpenedEvent) {
-    	        setTimeout(() => {
+        if (!this.state.isChatOpen && !this.state.wasChatOpened) {
+            if (this.props.conf.sendWidgetOpenedEvent) {
+                setTimeout(() => {
     	            this.sendOpenEvent();
                 }, 500);
             }
-    		stateData.wasChatOpened = true;
-    	}
-    	this.setState(stateData);
+            stateData.wasChatOpened = true;
+        }
 
-    	if (stateData.isChatOpen) {
+        this.setState(stateData);
+
+        if (stateData.isChatOpen) {
             document.getElementById("botmanWidgetRoot").classList.add("chatAppear");
             document.getElementById("botmanWidgetRoot").classList.add("animated");
 
             setTimeout(function () {
                 document.getElementById("botmanWidgetRoot").classList.remove("animated");
                 document.getElementById("botmanWidgetRoot").classList.remove("chatAppear");
-            }, 1000);
+            }, 500);
         }
         else {
             document.getElementById("botmanWidgetRoot").classList.add("chatDisappear");
@@ -163,8 +164,7 @@ export default class Widget extends Component<any, IWidgetState> {
             setTimeout(function () {
                 document.getElementById("botmanWidgetRoot").classList.remove("animated");
                 document.getElementById("botmanWidgetRoot").classList.remove("chatDisappear");
-            }, 1000);
-
+            }, 500);
         }
     };
 
@@ -182,6 +182,13 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: false
         });
     }
+
+    /**
+     * Returns if the chat is open
+     */
+    isOpen() {
+      return this.state.isChatOpen;
+    };
 
     private sendOpenEvent() {
         let data = new FormData();
