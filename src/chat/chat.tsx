@@ -26,6 +26,8 @@ export default class Chat extends Component<IChatProps, IChatState> {
 
         if (props.conf.pingLocation !== false)
             setInterval(() => {this.pingActivity(props)}, 5000);
+
+
     }
 
     componentDidMount() {
@@ -216,10 +218,12 @@ export default class Chat extends Component<IChatProps, IChatState> {
     };
 
     pingActivity = (props: IChatProps) => {
+        console.log("ref:", document.referrer);
         if (props.conf.pingLocation !== false) {
             axios.post(props.conf.pingLocation, {
                 userID: props.userId,
-                widgetOpen: this.state.open
+                widgetOpen: this.state.open,
+                url: document.referrer
             }).then( (reply) => {
                 // console.log(reply);
             }).catch((err) => {
