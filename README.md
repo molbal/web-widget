@@ -1,12 +1,14 @@
 # BotMan Web Widget
 
 This is the Sunday IT web widget. Forked from [botman/web-widget](https://github.com/botman/web-widget) but heavily modified. 
-This widget can be used with default Botman 2.0 installations, but best used with 
+This widget can be used with default Botman 2.0 installations, but best used with [molbal/sundayit-chatbot-admin](https://github.com/molbal/sundayit-chatbot-admin)
+
+With the extended control panel functionality, this widget sends some metadata and can reecive messages back from the control panel.
 
 # Installation
 
 ## 1. Clone this repository
-```$ git clone https://github.com/molbal/web-widget```
+```$ git clone https://github.com/sunday-ltd/web-widget```
 
 ## Install dependencies
 ```$ npm install```
