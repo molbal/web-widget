@@ -24,9 +24,12 @@ export default class Chat extends Component<IChatProps, IChatState> {
             open: true
         });
 
-        if (props.conf.pingLocation !== false)
-            setInterval(() => {this.pingActivity(props)}, 5000);
-
+        if (props.conf.pingLocation !== false) {
+            setInterval(() => {
+                this.pingActivity(props)
+            }, 5000);
+            this.getHistory(props);
+        }
 
     }
 
@@ -217,17 +220,46 @@ export default class Chat extends Component<IChatProps, IChatState> {
         }
     };
 
+    getHistory = (props: IChatProps) => {
+
+        if (props.conf.pingLocation !== false) {
+            axios.post(props.conf.pingLocation, {
+                userID: props.userId,
+                url: document.referrer,
+                get_history: true
+            }).then( (reply) => {
+                // console.log("history length: ", reply.data.history.length);
+                for(var i=0;i<reply.data.history.length;i++) {
+                    // console.log("admin message:",reply.data.admin_messages[i]);
+                    if (reply.data.history[i].fromUser) {
+                        this.say(reply.data.history[i].message)
+                    }
+                    else {
+                        this.sayAsBot(reply.data.history[i].message)
+                    }
+                }
+            }).catch((err) => {
+                console.error(err);0
+            });
+        }
+    };
+
+
     pingActivity = (props: IChatProps) => {
-        console.log("ref:", document.referrer);
+        // console.log("ref:", document.referrer);
         if (props.conf.pingLocation !== false) {
             axios.post(props.conf.pingLocation, {
                 userID: props.userId,
                 widgetOpen: this.state.open,
                 url: document.referrer
             }).then( (reply) => {
-                // console.log(reply);
+                // console.log("length: ", reply.data.admin_messages.length);
+                for(var i=0;i<reply.data.admin_messages.length;i++) {
+                    // console.log("admin message:",reply.data.admin_messages[i]);
+                    this.sayAsBot(reply.data.admin_messages[i].message)
+                }
             }).catch((err) => {
-                console.error(err);
+                console.error(err);0
             });
         }
     }
