@@ -83,6 +83,10 @@ The web widget also comes with an API to programatically send messages from the 
 
 See the chatframe repository, [here](https://github.com/sunday-ltd/chatframe)
 
+# Changelog
+
+See Changelog.md
+
 
 ## Credits
 ![](https://img.icons8.com/cotton/64/000000/cloud-user-group.png)
