@@ -221,25 +221,22 @@ export default class Chat extends Component<IChatProps, IChatState> {
     };
 
     getHistory = (props: IChatProps) => {
-
         if (props.conf.pingLocation !== false) {
             axios.post(props.conf.pingLocation, {
                 userID: props.userId,
                 url: document.referrer,
                 get_history: true
             }).then( (reply) => {
-                // console.log("history length: ", reply.data.history.length);
-                for(var i=0;i<reply.data.history.length;i++) {
-                    // console.log("admin message:",reply.data.admin_messages[i]);
-                    if (reply.data.history[i].fromUser) {
-                        this.say(reply.data.history[i].message)
-                    }
-                    else {
-                        this.sayAsBot(reply.data.history[i].message)
-                    }
+                for(let i=0;i<reply.data.history.length;i++) {
+                    let message: IMessage = {
+                        text: reply.data.history[i].message,
+                        type: "text",
+                        from: reply.data.history[i].fromUser ? "visitor" : "chatbot"
+                    };
+                    this.writeToMessages(message);
                 }
             }).catch((err) => {
-                console.error(err);0
+                console.error(err);
             });
         }
     };
